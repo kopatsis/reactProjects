@@ -15,9 +15,17 @@ const App = () => {
     event.target.item.value = "";
   };
 
+  const clickDelete = (index: number) => {
+    if (entryList.length === 1) {
+      setEntryList([]);
+    } else {
+      setEntryList(entryList.splice(index, 1));
+    }
+  };
+
   return (
     <>
-      <Overview entries={entryList} />
+      <Overview entries={entryList} onDelClick={clickDelete} />
       <Inputs handleSub={handleSubmit} />
     </>
   );
