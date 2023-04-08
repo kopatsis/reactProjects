@@ -4,11 +4,15 @@ interface Props {
 
 const Overview = ({ entries }: Props) => {
   return (
-    <ul>
-      {entries.map((item) => (
-        <li key={item}>{item}</li>
-      ))}
-    </ul>
+    <>
+      {entries.length >= 0 && (
+        <ul>
+          {entries.map((item) => (
+            <li key={item}>{item}</li>
+          ))}
+        </ul>
+      )}
+    </>
   );
 };
 

@@ -1,18 +1,23 @@
 import Overview from "./components/Overview";
 import Inputs from "./components/Inputs";
+import { useState } from "react";
 
-const reeList = ["ree", "reeeeee", "reeeeeeee", "REEEEEEE", "REE"];
-
-const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
-  event.preventDefault();
-  console.log(event.target[0].value);
-  event.target[0].value = "";
-};
+const reeList: string[] = [];
 
 const App = () => {
+  const [entryList, setEntryList] = useState(reeList);
+
+  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    const entered = event.target.item.value;
+    setEntryList((arr) => [...arr, entered]);
+
+    event.target.item.value = "";
+  };
+
   return (
     <>
-      <Overview entries={reeList} />
+      <Overview entries={entryList} />
       <Inputs handleSub={handleSubmit} />
     </>
   );
