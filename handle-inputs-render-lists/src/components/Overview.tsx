@@ -6,7 +6,7 @@ const Overview = ({ entries }: Props) => {
   return (
     <ul>
       {entries.map((item) => (
-        <li>{item}</li>
+        <li key={item}>{item}</li>
       ))}
     </ul>
   );
