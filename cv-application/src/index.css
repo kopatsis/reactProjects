@@ -11,5 +11,24 @@ form{
 
 .whole{
     display: flex;
-    justify-content: space-around;
+}
+
+.left{
+    margin-left: 25px;
+    margin-right: 50px;
+}
+
+.resume{
+    height: 750px;
+    width: 575px;
+    border: 2px solid black;
+}
+
+.oneline {
+    display: flex;
+    justify-content: space-between
+}
+
+.Inform, .Work{
+    border-bottom: 1px solid black;
 }

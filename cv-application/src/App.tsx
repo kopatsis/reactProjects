@@ -1,11 +1,12 @@
 import Education from "./components/Education";
 import Info from "./components/Info";
 import Jobs from "./components/Jobs";
+import Resume from "./components/Resume";
 
 function App() {
   return (
     <div className="whole">
-      <div>
+      <div className="left">
         <h1>Enter/Update Info:</h1>
         <h2>General Information</h2>
         <Info></Info>
@@ -16,6 +17,7 @@ function App() {
       </div>
       <div>
         <h1>Resume:</h1>
+        <Resume></Resume>
       </div>
     </div>
   );
