@@ -40,17 +40,44 @@ function App() {
   const [jobData, setJobData] = useState(starterJob);
   const [eduData, setEduData] = useState(starterEdu);
 
+  const [firstEntry, setFirstEntry] = useState(true);
+
   const infoFormHandler = (event: any) => {
     event.preventDefault();
 
-    setInfoData({
-      firstname: event.target[0].value,
-      lastname: event.target[1].value,
-      email: event.target[2].value,
-      phone: event.target[3].value,
-      linkedin: event.target[4].value,
-      site: event.target[5].value,
-    });
+    if (firstEntry) {
+      setInfoData({
+        firstname: event.target[0].value,
+        lastname: event.target[1].value,
+        email: event.target[2].value,
+        phone: event.target[3].value,
+        linkedin: event.target[4].value,
+        site: event.target[5].value,
+      });
+      setFirstEntry(false);
+    } else {
+      setInfoData({
+        firstname:
+          event.target[0].value === ""
+            ? infoData.firstname
+            : event.target[0].value,
+        lastname:
+          event.target[1].value === ""
+            ? infoData.lastname
+            : event.target[1].value,
+        email:
+          event.target[2].value === "" ? infoData.email : event.target[2].value,
+        phone:
+          event.target[3].value === "" ? infoData.phone : event.target[3].value,
+        linkedin:
+          event.target[4].value === ""
+            ? infoData.linkedin
+            : event.target[4].value,
+        site:
+          event.target[5].value === "" ? infoData.site : event.target[5].value,
+      });
+    }
+
     event.target.reset();
   };
 
@@ -99,7 +126,7 @@ function App() {
       <div className="left">
         <h1>Enter/Update Info:</h1>
         <h2>General Information</h2>
-        <Info handleSub={infoFormHandler}></Info>
+        <Info handleSub={infoFormHandler} first={firstEntry}></Info>
         <h2>Work Experience</h2>
         <Jobs handleSub={jobFormHandler}></Jobs>
         <h2>Academic Information</h2>

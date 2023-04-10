@@ -20,8 +20,12 @@ form{
 
 .resume{
     height: 750px;
-    width: 575px;
+    width: 600px;
     border: 2px solid black;
+    overflow-y:auto;
+    padding-left: 15px;
+    padding-right: 15px;
+    padding-bottom: 20px;
 }
 
 .oneline {
@@ -36,3 +40,8 @@ form{
 .title-company, .title-school{
     font-weight: bold;
 }
+
+/* .dates{
+    width: 49.5%;
+    display: inline-block;
+} */
