@@ -1,8 +1,10 @@
-import React from "react";
+interface Props {
+  handleSub: (event: React.FormEvent<HTMLFormElement>) => void;
+}
 
-const Education = () => {
+const Education = ({ handleSub }: Props) => {
   return (
-    <form>
+    <form onSubmit={handleSub}>
       <input id="degree" placeholder="Degree" type="text" required />
       <input id="school" placeholder="School Name" type="text" required />
       <div className="date-range">

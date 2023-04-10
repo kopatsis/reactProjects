@@ -32,3 +32,7 @@ form{
 .Inform, .Work{
     border-bottom: 1px solid black;
 }
+
+.title-company, .title-school{
+    font-weight: bold;
+}

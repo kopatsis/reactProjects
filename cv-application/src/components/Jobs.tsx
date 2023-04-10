@@ -1,8 +1,10 @@
-import React from "react";
+interface Props {
+  handleSub: (event: React.FormEvent<HTMLFormElement>) => void;
+}
 
-const Jobs = () => {
+const Jobs = ({ handleSub }: Props) => {
   return (
-    <form>
+    <form onSubmit={handleSub}>
       <input id="title" placeholder="Job Title" type="text" required />
       <input id="company" placeholder="Company Name" type="text" required />
       <div className="date-range">

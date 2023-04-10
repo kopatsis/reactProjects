@@ -1,8 +1,10 @@
-import React from "react";
+interface Props {
+  handleSub: (event: React.FormEvent<HTMLFormElement>) => void;
+}
 
-const Info = () => {
+const Info = ({ handleSub }: Props) => {
   return (
-    <form>
+    <form onSubmit={handleSub}>
       <input id="firstname" placeholder="First Name" type="text" required />
       <input id="lastname" placeholder="Last Name" type="text" required />
       <input id="email" type="email" placeholder="Email" required />
