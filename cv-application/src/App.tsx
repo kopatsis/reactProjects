@@ -122,25 +122,28 @@ function App() {
   };
 
   return (
-    <div className="whole">
-      <div className="left">
-        <h1>Enter/Update Info:</h1>
-        <h2>General Information</h2>
-        <Info handleSub={infoFormHandler} first={firstEntry}></Info>
-        <h2>Work Experience</h2>
-        <Jobs handleSub={jobFormHandler}></Jobs>
-        <h2>Academic Information</h2>
-        <Education handleSub={eduFormHandler}></Education>
+    <>
+      <div className="build">Your Resume Builder</div>
+      <div className="whole">
+        <div className="left">
+          <h1>Enter/Update Info:</h1>
+          <h2>General Information</h2>
+          <Info handleSub={infoFormHandler} first={firstEntry}></Info>
+          <h2>Work Experience</h2>
+          <Jobs handleSub={jobFormHandler}></Jobs>
+          <h2>Academic Information</h2>
+          <Education handleSub={eduFormHandler}></Education>
+        </div>
+        <div className="right">
+          <h1>Resume:</h1>
+          <Resume
+            infoData={infoData}
+            jobData={jobData}
+            eduData={eduData}
+          ></Resume>
+        </div>
       </div>
-      <div className="right">
-        <h1>Resume:</h1>
-        <Resume
-          infoData={infoData}
-          jobData={jobData}
-          eduData={eduData}
-        ></Resume>
-      </div>
-    </div>
+    </>
   );
 }
 
