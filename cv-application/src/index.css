@@ -1,7 +1,22 @@
+:root{
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+html{
+    background-color: #ffffff; 
+    background-image: linear-gradient(315deg, #ffffff 0%, hsl(175, 100%, 96%) 74%);
+    height: 100%;
+}
+body {
+    height: 100%;
+    margin: 0;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
 form{
     display: flex;
     flex-direction: column;
-    max-width: 400px;
 }
 
 #sub{
@@ -15,7 +30,8 @@ form{
 
 .left{
     margin-left: 25px;
-    margin-right: 50px;
+    margin-right: 45px;
+    width: 500px;
 }
 
 .resume{
@@ -26,11 +42,20 @@ form{
     padding-left: 15px;
     padding-right: 15px;
     padding-bottom: 20px;
+    background-color: white;
 }
 
 .oneline {
     display: flex;
     justify-content: space-between
+}
+
+input, textarea{
+    background-color: transparent;
+    margin: 3px;
+    font-size: 16px;
+    font-family: 'Courier New', Courier, monospace;
+    border-radius: 6px;
 }
 
 .Inform, .Work{
@@ -41,7 +66,40 @@ form{
     font-weight: bold;
 }
 
-/* .dates{
-    width: 49.5%;
-    display: inline-block;
-} */
+.dates{
+    cursor: pointer;
+}
+
+.right{
+    margin-right: 15px;
+}
+
+@media only screen and (max-width: 1000px) and (min-width: 550px) {
+    .whole{
+        display: flex;
+        flex-direction: column;
+    }
+    .left{
+        width: 500px;
+    }
+}
+
+@media only screen and (max-width: 1250px) and (min-width: 1000px) {
+    .left{
+        width: 400px;
+    }
+}
+
+@media only screen and (max-width: 550px) {
+    .left{
+        margin-right: 5vw;
+        margin-left: 5vw;
+    }
+    .whole{
+        display: flex;
+        flex-direction: column;
+    }
+    input, textarea{
+        font-size: auto;
+    }
+}

@@ -132,7 +132,7 @@ function App() {
         <h2>Academic Information</h2>
         <Education handleSub={eduFormHandler}></Education>
       </div>
-      <div>
+      <div className="right">
         <h1>Resume:</h1>
         <Resume
           infoData={infoData}
