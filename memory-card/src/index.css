@@ -31,3 +31,7 @@ img{
   height: 280px;
   width: 180px;
 }
+
+button{
+  cursor: pointer;
+}

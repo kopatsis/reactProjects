@@ -29,13 +29,26 @@ const App = () => {
 
   const used = [];
 
-  const characters = [unused[Math.floor(Math.random()*20)], unused[Math.floor(Math.random()*20)], unused[Math.floor(Math.random()*20)],
-  unused[Math.floor(Math.random()*20)], unused[Math.floor(Math.random()*20)], unused[Math.floor(Math.random()*20)]]
+  let characters = [];
+
+  let i = 0;
+  while(i<6){
+    const curr = Math.floor(Math.random()*20);
+    if(!characters.includes(curr)){
+      i++;
+      characters.push(curr);
+    }
+  }
+
+  const passin = [unused[characters[0]], 
+  unused[characters[1]], unused[characters[2]], 
+  unused[characters[3]], unused[characters[4]], 
+  unused[characters[5]]]
 
   return (
     <div>
       <Ancillary/>
-      <Cardset charArr={characters} />
+      <Cardset charArr={passin} />
     </div>
   )
 }
