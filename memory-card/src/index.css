@@ -1,0 +1,8 @@
+.topLine{
+  display: flex;
+  justify-content: space-between;
+}
+
+.metrics{
+  display: flex;
+}
