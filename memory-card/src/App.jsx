@@ -1,34 +1,38 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import React from 'react'
 
-function App() {
-  const [count, setCount] = useState(0)
+const App = () => {
+
+  const nameMap = {
+    "Edward Elric": "./assets/edward.jpg",
+    "Eren Yeager": "./assets/eren.jpg",
+    "Gintoki Sakata": "./assets/gintoki.jpg",
+    "Satorou Gojo": "./assets/gojo.jpg",
+    "Guts": "./assets/guts.jpg",
+    "Hachiman Hikigaya": "./assets/hachiman.jpg",
+    "Itachi Uchiha": "./assets/itachi.jpg",
+    "Ken Kaneki": "./assets/kaneki.jpg",
+    "Killua Zoldyck": "./assets/killua.jpg",
+    "L Lawliet": "./assets/L.jpg",
+    "Lelouch Lamperouge": "./assets/lelouch.jpg",
+    "Levi Ackerman": "./assets/levi.jpg",
+    "Light Yagami": "./assets/light.jpg",
+    "Monkey D Luffy": "./assets/luffy.jpg",
+    "Makise Kurisu": "./assets/makise.jpg",
+    "Mikasa Ackerman": "./assets/mikasa.jpg",
+    "Naruto Uzumaki": "./assets/naruto.jpg",
+    "Rintarou Okabe": "./assets/rintaro.jpg",
+    "Saitama": "./assets/saitama.jpg",
+    "Roronoa Zoro": "./assets/zoro.jpg",
+  };
+
+  const usedSet = [];
+
+  const unUsedSet = [];
+
+  nameMap.forEach(name => unUsedSet.push(name));
 
   return (
-    <div className="App">
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://reactjs.org" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </div>
+    <div>App</div>
   )
 }
 
