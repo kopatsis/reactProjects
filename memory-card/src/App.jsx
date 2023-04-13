@@ -1,54 +1,24 @@
 import React from 'react'
 import Ancillary from './components/Ancillary';
 import Cardset from './components/Cardset';
+import { useState } from 'react';
 
 const App = () => {
 
-  const unused = [
-    "Edward Elric",
-    "Eren Yeager",
-    "Gintoki Sakata",
-    "Satorou Gojo",
-    "Guts",
-    "Hachiman Hikigaya",
-    "Itachi Uchiha",
-    "Ken Kaneki",
-    "Killua Zoldyck",
-    "L Lawliet",
-    "Lelouch Lamperouge",
-    "Levi Ackerman",
-    "Light Yagami",
-    "Monkey D Luffy",
-    "Makise Kurisu",
-    "Mikasa Ackerman",
-    "Naruto Uzumaki",
-    "Rintarou Okabe",
-    "Saitama",
-    "Roronoa Zoro"
-  ];
+  const [Score, setScore] = useState(0);
 
-  const used = [];
-
-  let characters = [];
-
-  let i = 0;
-  while(i<6){
-    const curr = Math.floor(Math.random()*20);
-    if(!characters.includes(curr)){
-      i++;
-      characters.push(curr);
-    }
+  const upScore = () => {
+    setScore(Score+1)
   }
 
-  const passin = [unused[characters[0]], 
-  unused[characters[1]], unused[characters[2]], 
-  unused[characters[3]], unused[characters[4]], 
-  unused[characters[5]]]
+  const zeroScore = () => {
+    setScore(0)
+  }
 
   return (
     <div>
-      <Ancillary/>
-      <Cardset charArr={passin} />
+      <Ancillary passScore={Score}/>
+      <Cardset scoreZero={zeroScore} scoreInc={upScore} />
     </div>
   )
 }

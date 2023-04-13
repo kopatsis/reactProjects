@@ -1,13 +1,22 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 
-const Ancillary = () => {
+const Ancillary = ({passScore}) => {
+
+    const [best, setBest] = useState(0);
+
+    useEffect(() => {
+        if(passScore > best){
+           setBest(passScore);
+        }
+    }, [passScore])
+
   return (
     <>
         <div className='topLine'>
             <h1>Anime Character Memory Game</h1>
             <div className='metrics'>
-                <div>Score: 0</div>
-                <div>Best: 0</div>
+                <div>Score: {passScore}</div>
+                <div>Best: {best}</div>
             </div>
         </div>
         <div className='bottomLine'>
