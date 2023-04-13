@@ -36,3 +36,12 @@ img{
 button{
   cursor: pointer;
 }
+
+@keyframes rollout {
+  0% { transform: translateX(-10px); }
+  100% { transform: none; }
+}
+
+.card {
+  animation: rollout 0.4s;
+}

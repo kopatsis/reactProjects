@@ -18,7 +18,7 @@ const App = () => {
   return (
     <div>
       <Ancillary passScore={Score}/>
-      <Cardset scoreZero={zeroScore} scoreInc={upScore} />
+      <Cardset scoreZero={zeroScore} scoreInc={upScore} score={Score}/>
     </div>
   )
 }

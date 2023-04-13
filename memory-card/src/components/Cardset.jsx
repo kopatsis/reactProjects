@@ -1,7 +1,7 @@
 import Card from "./Card"
 import { useState, useEffect } from "react";
 
-const Cardset = ({scoreZero, scoreInc}) => {
+const Cardset = ({scoreZero, scoreInc, score}) => {
 
     const [win, setWin] = useState(false);
 
@@ -138,14 +138,14 @@ const Cardset = ({scoreZero, scoreInc}) => {
   return (
     <div className="allcards">
         <div className="cardrow">
-            <Card charname={cardNames[0]} cardClick={cardClicked}/>
-            <Card charname={cardNames[1]} cardClick={cardClicked}/>
-            <Card charname={cardNames[2]} cardClick={cardClicked}/>
+            <Card charname={cardNames[0]} cardClick={cardClicked} score={score}/>
+            <Card charname={cardNames[1]} cardClick={cardClicked} score={score}/>
+            <Card charname={cardNames[2]} cardClick={cardClicked} score={score}/>
         </div>
         <div className="cardrow">
-            <Card charname={cardNames[3]} cardClick={cardClicked}/>
-            <Card charname={cardNames[4]} cardClick={cardClicked}/>
-            <Card charname={cardNames[5]} cardClick={cardClicked}/>
+            <Card charname={cardNames[3]} cardClick={cardClicked} score={score}/>
+            <Card charname={cardNames[4]} cardClick={cardClicked} score={score}/>
+            <Card charname={cardNames[5]} cardClick={cardClicked} score={score}/>
         </div>
         <div className='message'>{win &&
         <>

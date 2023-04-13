@@ -42,10 +42,10 @@ const mapper ={
     "Roronoa Zoro": zoro,
 }
 
-const Card = ({charname, cardClick}) => {
+const Card = ({charname, cardClick, score}) => {
 
   return (
-    <div onClick={cardClick} className="card" id={charname}>
+    <div key={score} onClick={cardClick} className="card" id={charname}>
         <img src={mapper[charname]} id={charname}>
         </img>
         <div id={charname}>{charname} </div>
