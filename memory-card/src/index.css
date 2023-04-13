@@ -5,6 +5,7 @@
 
 .metrics{
   display: flex;
+  flex-direction: column;
 }
 
 .card{
