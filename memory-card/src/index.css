@@ -102,3 +102,14 @@ button{
   align-items: center;
   font-size: min(18px, 3.13vw);
 }
+
+.tbrContent{
+  display: flex;
+  flex-direction: column;
+}
+
+@media only screen and (min-width: 600px) {
+  .tbrContent{
+    flex-direction: column-reverse;
+  }
+}
