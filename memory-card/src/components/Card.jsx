@@ -48,7 +48,7 @@ const Card = ({charname, cardClick, score}) => {
     <div key={score} onClick={cardClick} className="card" id={charname}>
         <img src={mapper[charname]} id={charname}>
         </img>
-        <div id={charname}>{charname} </div>
+        <div className="cardtext" id={charname}>{charname} </div>
     </div>
   )
 }
