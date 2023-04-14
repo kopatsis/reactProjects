@@ -7,7 +7,7 @@ html {
 
 h1{
   text-shadow: 2px 2px 4px rgba(0, 0, 0, .2);
-  margin-left: min(10px, 1.74vw);
+  margin: min(10px, 1.74vw);
 }
 
 .topLine{
@@ -24,6 +24,7 @@ h1{
   font-weight: bold;
   border: 2px solid #f9f9f9;
   border-radius: 6px;
+  min-width: 66px;
 }
 
 .card{
