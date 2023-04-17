@@ -5,6 +5,14 @@ const Cart = ({CD, edit, clear}) => {
 
     const context = useOutletContext();
 
+    const minus = (event) => {
+      edit(parseInt(event.currentTarget.id), -1);
+    }
+
+    const plus = (event) => {
+      edit(parseInt(event.currentTarget.id), 1);
+    }
+
   return (
     <>
       <div>Cart</div>
@@ -12,7 +20,11 @@ const Cart = ({CD, edit, clear}) => {
         <div key={index}>
           <img src={item.img}></img>
           <div>{item.name}</div>
-          <div>Qty: {item.count}</div>
+          <div>
+            <button id={index} onClick={minus}>-</button>
+            <span>Qty: {item.count}</span>
+            <button id={index} onClick={plus}>+</button>
+          </div>
         </div>
       ))}
     </>

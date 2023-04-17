@@ -166,8 +166,9 @@ const cartAdd = (item) => {
 }
 
 const cartItemEdit = (index, count) => {
-  inCart[index].count = count;
-  setInCart(inCart);
+  const tempA = inCart.slice();
+  tempA[index].count += count;
+  setInCart(tempA);
 }
 
 const cartClear = () => {

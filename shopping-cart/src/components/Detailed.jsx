@@ -14,7 +14,7 @@ const Detailed = ({add}) => {
 
     const navToCart = (event) => {
         event.preventDefault();
-        add({count: event.currentTarget[0].value, img: item.src, name: item.name})
+        add({count: parseInt(event.currentTarget[0].value), img: item.src, name: item.name})
         navigate(`/${context.place}/cart`);
     }
 
@@ -27,7 +27,7 @@ const Detailed = ({add}) => {
             <div>
                 <div>Qty</div>
                 <form onSubmit={navToCart}>
-                    <input type="number" min="1"></input>
+                    <input type="number" min={1} defaultValue={1}></input>
                     <input type="submit" value="Add to Cart" />
                 </form>
             </div>
