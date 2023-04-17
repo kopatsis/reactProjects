@@ -150,7 +150,19 @@ let temp = [];
 const [inCart, setInCart] = useState(temp);
 
 const cartAdd = (item) => {
-  setInCart(inCart.concat(item));
+  const curname = item.name;
+  let ind = -1;
+  inCart.forEach((item, index) => {
+    if(item.name === curname){
+      ind = index;
+    }
+  });
+  if(ind === -1){
+    setInCart(inCart.concat(item));
+  } else {
+    inCart[ind].count += item.count;
+    setInCart(inCart);
+  }
 }
 
 const cartItemEdit = (index, count) => {
