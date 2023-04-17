@@ -4,7 +4,7 @@ import { Outlet } from 'react-router-dom'
 import { Link } from 'react-router-dom'
 import Topbar from './Topbar'
 
-const Products = ({place, data}) => {
+const Products = ({place, data, addCart}) => {
   return (
     <>
         <Topbar inpath={place}/>
@@ -15,15 +15,15 @@ const Products = ({place, data}) => {
                 <Link to="/extra">Extra Sharp</Link>
                 <Link to="/sharp">Sharp</Link>
                 <Link to="/medium">Medium</Link>
-                <Link to="/milkd">Mild</Link>
+                <Link to="/mild">Mild</Link>
             </nav>
             <div>
                 {data.filter(item => item.type === place || place === "all").map((item, index) => (
-                    <Product key={index} item={item} index={index} />
+                    <Product key={index} item={item} place={place} addCart={addCart}/>
                 ))}
             </div>
         </div>
-        <Outlet context={{passedData: data}}/>
+        <Outlet context={{passedData: data, place: place}}/>
     </>
   )
 }

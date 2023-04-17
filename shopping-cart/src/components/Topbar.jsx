@@ -1,10 +1,19 @@
 import React from 'react'
-import { Link, Navigate } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
+
+
 
 const Topbar = ({inpath}) => {
+
+    const navigate = useNavigate();
+
+    const navHome = () => {
+        navigate('/home');
+    }
+
   return (
     <header>
-        <h1 onClick={() => Navigate('/home')}>Cheddar Depot</h1>
+        <h1 onClick={navHome}>Cheddar Depot</h1>
         <nav>
             <Link to={"/home"}>Home</Link>
             <Link to={"/all"}>Products</Link>
