@@ -183,27 +183,27 @@ const cartClear = () => {
       </Route>
       <Route path="/all" element={<Products place={'all'} data={allData} addCart={cartAdd}/>} >
         <Route path="cart" element={<Cart CD={inCart} edit={cartItemEdit} clear={cartClear}/>}/>
-        <Route path=":id" element={<Detailed/>}/>
+        <Route path=":id" element={<Detailed add={cartAdd}/>}/>
 
       </Route>
       <Route path="/extra" element={<Products place={'extra'} data={allData} addCart={cartAdd}/>} >
         <Route path="cart" element={<Cart CD={inCart} edit={cartItemEdit} clear={cartClear}/>}/>
-        <Route path=":id" element={<Detailed/>}/>
+        <Route path=":id" element={<Detailed add={cartAdd}/>}/>
 
       </Route>
       <Route path="/sharp" element={<Products place={'sharp'} data={allData} addCart={cartAdd}/>} >
         <Route path="cart" element={<Cart CD={inCart} edit={cartItemEdit} clear={cartClear}/>}/> 
-        <Route path=":id" element={<Detailed/>}/>
+        <Route path=":id" element={<Detailed add={cartAdd}/>}/>
 
       </Route>
       <Route path="/medium" element={<Products place={'medium'} data={allData} addCart={cartAdd}/>} >
         <Route path="cart" element={<Cart CD={inCart} edit={cartItemEdit} clear={cartClear}/>}/>
-        <Route path=":id" element={<Detailed/>}/>
+        <Route path=":id" element={<Detailed add={cartAdd}/>}/>
 
       </Route>
       <Route path="/mild" element={<Products place={'mild'} data={allData} addCart={cartAdd}/>} >
         <Route path="cart" element={<Cart CD={inCart} edit={cartItemEdit} clear={cartClear}/>}/>
-        <Route path=":id" element={<Detailed/>}/>
+        <Route path=":id" element={<Detailed add={cartAdd}/>}/>
 
       </Route>
     </Routes>
