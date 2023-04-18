@@ -1,7 +1,9 @@
 import React from 'react'
-import { useOutletContext } from 'react-router-dom'
+import { useOutletContext, useNavigate } from 'react-router-dom'
 
 const Cart = ({CD, edit, clear, del}) => {
+
+  const navigate = useNavigate();
 
     const context = useOutletContext();
 
@@ -22,6 +24,9 @@ const Cart = ({CD, edit, clear, del}) => {
   return (
     <>
       <div>Cart</div>
+      <div>
+            <button onClick={() => {navigate(`/${context.place}`);}}>X Close</button>
+        </div>
       {CD.map((item, index) => (
         <div key={index}>
           <img src={item.img}></img>

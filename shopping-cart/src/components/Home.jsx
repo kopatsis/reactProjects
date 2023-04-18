@@ -8,7 +8,7 @@ const Home = ({place, data}) => {
         <Topbar inpath={place}/>
         <p>Your source for all products and brands of cheddar cheese</p>
         <Link to={"/all"}>View Products</Link>
-        <Outlet context={{passedData: data}} />
+        <Outlet context={{passedData: data, place: place}} />
     </>
   )
 }

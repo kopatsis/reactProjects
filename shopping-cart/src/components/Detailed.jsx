@@ -7,9 +7,9 @@ const Detailed = ({add}) => {
 
  const { id } = useParams();
 
- const context = useOutletContext()
+ const context = useOutletContext();
 
- const item = context.passedData[id]
+ const item = context.passedData[id];
 
  const navigate = useNavigate();
 
@@ -22,21 +22,22 @@ const Detailed = ({add}) => {
 
  return (
     <div>
+        <div>
+            <button onClick={() => {navigate(`/${context.place}`);}}>X Close</button>
+        </div>
         <img src={item.src}></img>
         <div>{item.name}</div>
         <div>
             <div>Price: {item.price}</div>
             <div>
-                <div>
-                    <button onClick={() => {
-                        if(amount > 1){
-                            setAmount(amount-1);
-                        }
-                    }}>-</button>
-                    <span>Qty: {amount}</span>
-                    <button onClick={() => {setAmount(amount+1)}}>+</button>
-                    <button onClick={navToCart}>Add to Cart</button>
-                </div>
+                <button onClick={() => {
+                    if(amount > 1){
+                        setAmount(amount-1);
+                    }
+                }}>-</button>
+                <span>Qty: {amount}</span>
+                <button onClick={() => {setAmount(amount+1)}}>+</button>
+                <button onClick={navToCart}>Add to Cart</button>
             </div>
         </div>
     </div>
