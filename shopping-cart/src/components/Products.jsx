@@ -17,7 +17,7 @@ const Products = ({place, data, addCart}) => {
                 <Link to="/medium">Medium</Link>
                 <Link to="/mild">Mild</Link>
             </nav>
-            <div>
+            <div className='prodgrid'>
                 {data.filter(item => item.type === place || place === "all").map((item, index) => (
                     <Product key={index} item={item} place={place} addCart={addCart}/>
                 ))}

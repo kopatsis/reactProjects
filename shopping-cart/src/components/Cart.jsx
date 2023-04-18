@@ -38,35 +38,33 @@ const Cart = ({CD, edit, clear, del}) => {
     }, [CD]);
 
     useEffect(() => {
-      // let currentTotal = 0;
-      // priceArr.forEach((sub) => {
-      //   currentTotal += sub;
-      // });
       setTotals(priceArr.reduce(function (a, b) {return a + b;}, 0));
     }, [priceArr])
 
   return (
-    <>
-      <div>Cart</div>
-      <div>
-            <button onClick={() => {navigate(`/${context.place}`);}}>X Close</button>
-        </div>
-      {CD.map((item, index) => (
-        <div key={index}>
-          <img src={item.img}></img>
-          <div>{item.name}</div>
-          <div>
-            <button id={index} onClick={minus}>-</button>
-            <span>Qty: {item.count}</span>
-            <button id={index} onClick={plus}>+</button>
-            <button id={index} onClick={useDel}>Delete Item</button>
+    <div className='cart'>
+      <div className='cart-inn'>
+        <div>Cart</div>
+        <div>
+              <button onClick={() => {navigate(`/${context.place}`);}}>X Close</button>
           </div>
-          <div>Item Total: ${priceArr[index]}</div>
-        </div>
-      ))}
-      {CD.length > 0 && <div>Total: ${totals}</div>}
-      {CD.length > 0 && <button onClick={clear}>Clear Cart</button>}
-    </>
+        {CD.map((item, index) => (
+          <div key={index}>
+            <img src={item.img}></img>
+            <div>{item.name}</div>
+            <div>
+              <button id={index} onClick={minus}>-</button>
+              <span>Qty: {item.count}</span>
+              <button id={index} onClick={plus}>+</button>
+              <button id={index} onClick={useDel}>Delete Item</button>
+            </div>
+            <div>Item Total: ${priceArr[index]}</div>
+          </div>
+        ))}
+        {CD.length > 0 && <div>Total: ${totals}</div>}
+        {CD.length > 0 && <button onClick={clear}>Clear Cart</button>}
+      </div>
+    </div>
   )
 }
 

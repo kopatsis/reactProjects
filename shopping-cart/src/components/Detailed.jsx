@@ -21,23 +21,25 @@ const Detailed = ({add}) => {
     const [amount, setAmount] = useState(1);
 
  return (
-    <div>
-        <div>
-            <button onClick={() => {navigate(`/${context.place}`);}}>X Close</button>
-        </div>
-        <img src={item.src}></img>
-        <div>{item.name}</div>
-        <div>
-            <div>Price: {item.price}</div>
+    <div className='detailed'>
+        <div className='detailed-inn'>
             <div>
-                <button onClick={() => {
-                    if(amount > 1){
-                        setAmount(amount-1);
-                    }
-                }}>-</button>
-                <span>Qty: {amount}</span>
-                <button onClick={() => {setAmount(amount+1)}}>+</button>
-                <button onClick={navToCart}>Add to Cart</button>
+                <button onClick={() => {navigate(`/${context.place}`);}}>X Close</button>
+            </div>
+            <img src={item.src}></img>
+            <div>{item.name}</div>
+            <div>
+                <div>Price: {item.price}</div>
+                <div>
+                    <button onClick={() => {
+                        if(amount > 1){
+                            setAmount(amount-1);
+                        }
+                    }}>-</button>
+                    <span>Qty: {amount}</span>
+                    <button onClick={() => {setAmount(amount+1)}}>+</button>
+                    <button onClick={navToCart}>Add to Cart</button>
+                </div>
             </div>
         </div>
     </div>

@@ -15,7 +15,7 @@ const Product = ({item, place, addCart}) => {
     }
 
   return (
-    <div>
+    <div className='product'>
         <img src={item.src} onClick={navToDetailed}></img>
         <div>{item.name}</div>
         <div>
