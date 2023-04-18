@@ -14,7 +14,7 @@ const Detailed = ({add}) => {
  const navigate = useNavigate();
 
     const navToCart = () => {
-        add({count: amount, img: item.src, name: item.name})
+        add({count: amount, img: item.src, name: item.name, price: item.price})
         navigate(`/${context.place}/cart`);
     }
 

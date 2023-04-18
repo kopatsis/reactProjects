@@ -10,7 +10,7 @@ const Product = ({item, place, addCart}) => {
     }
 
     const navToCart = () => {
-        addCart({count: 1, img: item.src, name: item.name})
+        addCart({count: 1, img: item.src, name: item.name, price: item.price})
         navigate(`/${place}/cart`);
     }
 

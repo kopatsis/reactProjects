@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { useOutletContext, useNavigate } from 'react-router-dom'
 
 const Cart = ({CD, edit, clear, del}) => {
@@ -21,6 +21,20 @@ const Cart = ({CD, edit, clear, del}) => {
       del(parseInt(event.currentTarget.id));
     }
 
+    const [priceArr, setPriceArr] = useState([]);
+
+    const createPrices = () => {
+      let temp = [];
+      CD.forEach((item) => {
+        temp.push(parseFloat(item.price.slice(1))*item.count);
+      });
+      setPriceArr(temp);
+    }
+
+    useEffect(() => {
+      createPrices();
+    }, [CD])
+
   return (
     <>
       <div>Cart</div>
@@ -37,8 +51,10 @@ const Cart = ({CD, edit, clear, del}) => {
             <button id={index} onClick={plus}>+</button>
             <button id={index} onClick={useDel}>Delete Item</button>
           </div>
+          <div>Item Total: ${priceArr[index]}</div>
         </div>
       ))}
+      <div>Total: </div>
       {CD.length > 0 && <button onClick={clear}>Clear Cart</button>}
     </>
   )
