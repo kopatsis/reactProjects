@@ -16,9 +16,11 @@ const Product = ({item, place, addCart}) => {
 
   return (
     <div className='product'>
-        <img src={item.src} onClick={navToDetailed} className='prodimg'></img>
-        <div className='prodname' onClick={navToDetailed}>{item.name} </div>
-        <div>
+        <div className='image-house'>
+            <img src={item.src} onClick={navToDetailed} className='prodimg'></img>
+        </div>
+        <div className='prod-details'>
+            <div className='prodname' onClick={navToDetailed}>{item.name} </div>
             <div>Price: {item.price}</div>
             <button onClick={navToCart}>Add to Cart</button>
         </div>

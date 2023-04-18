@@ -13,11 +13,11 @@ const Topbar = ({inpath}) => {
 
   return (
     <header>
-        <h1 onClick={navHome}>Cheddar Depot</h1>
+        <h1 onClick={navHome} className='mainlogo'>Cheddar Depot</h1>
         <nav>
-            <Link to={"/home"}>Home</Link>
-            <Link to={"/all"}>Products</Link>
-            <Link to={`/${inpath}/cart`}>Cart</Link>
+            <Link to={"/home"} className='home'>Home</Link>
+            <Link to={"/all"} className='home'>Products</Link>
+            <Link to={`/${inpath}/cart`} className='home'>Cart</Link>
         </nav>
     </header>
   )
