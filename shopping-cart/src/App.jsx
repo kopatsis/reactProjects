@@ -171,6 +171,17 @@ const cartItemEdit = (index, count) => {
   setInCart(tempA);
 }
 
+const cartDel = (index) => {
+  if(inCart.length === 1){
+    setInCart([]);
+  } else{
+    const lookFor = inCart[index].name;
+    setInCart(inCart.filter((item) => {
+      return item.name !== lookFor;
+    }));
+  }
+}
+
 const cartClear = () => {
   setInCart([]);
 }
@@ -179,31 +190,31 @@ const cartClear = () => {
     <Routes>
       <Route path="/" element={<Home place={'home'}/>} ></Route>
       <Route path="/home" element={<Home place={'home'} data={allData}/>} >
-        <Route path="cart" element={<Cart CD={inCart} edit={cartItemEdit} clear={cartClear}/>}/>
+        <Route path="cart" element={<Cart CD={inCart} edit={cartItemEdit} clear={cartClear} del={cartDel}/>}/>
 
       </Route>
       <Route path="/all" element={<Products place={'all'} data={allData} addCart={cartAdd}/>} >
-        <Route path="cart" element={<Cart CD={inCart} edit={cartItemEdit} clear={cartClear}/>}/>
+        <Route path="cart" element={<Cart CD={inCart} edit={cartItemEdit} clear={cartClear} del={cartDel}/>}/>
         <Route path=":id" element={<Detailed add={cartAdd}/>}/>
 
       </Route>
       <Route path="/extra" element={<Products place={'extra'} data={allData} addCart={cartAdd}/>} >
-        <Route path="cart" element={<Cart CD={inCart} edit={cartItemEdit} clear={cartClear}/>}/>
+        <Route path="cart" element={<Cart CD={inCart} edit={cartItemEdit} clear={cartClear} del={cartDel}/>}/>
         <Route path=":id" element={<Detailed add={cartAdd}/>}/>
 
       </Route>
       <Route path="/sharp" element={<Products place={'sharp'} data={allData} addCart={cartAdd}/>} >
-        <Route path="cart" element={<Cart CD={inCart} edit={cartItemEdit} clear={cartClear}/>}/> 
+        <Route path="cart" element={<Cart CD={inCart} edit={cartItemEdit} clear={cartClear} del={cartDel}/>}/> 
         <Route path=":id" element={<Detailed add={cartAdd}/>}/>
 
       </Route>
       <Route path="/medium" element={<Products place={'medium'} data={allData} addCart={cartAdd}/>} >
-        <Route path="cart" element={<Cart CD={inCart} edit={cartItemEdit} clear={cartClear}/>}/>
+        <Route path="cart" element={<Cart CD={inCart} edit={cartItemEdit} clear={cartClear} del={cartDel}/>}/>
         <Route path=":id" element={<Detailed add={cartAdd}/>}/>
 
       </Route>
       <Route path="/mild" element={<Products place={'mild'} data={allData} addCart={cartAdd}/>} >
-        <Route path="cart" element={<Cart CD={inCart} edit={cartItemEdit} clear={cartClear}/>}/>
+        <Route path="cart" element={<Cart CD={inCart} edit={cartItemEdit} clear={cartClear} del={cartDel}/>}/>
         <Route path=":id" element={<Detailed add={cartAdd}/>}/>
 
       </Route>

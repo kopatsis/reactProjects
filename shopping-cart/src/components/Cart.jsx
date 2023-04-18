@@ -1,16 +1,22 @@
 import React from 'react'
 import { useOutletContext } from 'react-router-dom'
 
-const Cart = ({CD, edit, clear}) => {
+const Cart = ({CD, edit, clear, del}) => {
 
     const context = useOutletContext();
 
     const minus = (event) => {
-      edit(parseInt(event.currentTarget.id), -1);
+      if(CD[parseInt(event.currentTarget.id)].count > 1){
+        edit(parseInt(event.currentTarget.id), -1);
+      }
     }
 
     const plus = (event) => {
       edit(parseInt(event.currentTarget.id), 1);
+    }
+
+    const useDel = (event) => {
+      del(parseInt(event.currentTarget.id));
     }
 
   return (
@@ -24,9 +30,11 @@ const Cart = ({CD, edit, clear}) => {
             <button id={index} onClick={minus}>-</button>
             <span>Qty: {item.count}</span>
             <button id={index} onClick={plus}>+</button>
+            <button id={index} onClick={useDel}>Delete Item</button>
           </div>
         </div>
       ))}
+      {CD.length > 0 && <button onClick={clear}>Clear Cart</button>}
     </>
   )
 }
