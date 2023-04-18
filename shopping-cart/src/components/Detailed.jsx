@@ -1,6 +1,7 @@
 import React from 'react'
 import { useParams } from 'react-router-dom';
 import { useOutletContext, useNavigate } from 'react-router-dom';
+import { useState } from 'react';
 
 const Detailed = ({add}) => {
 
@@ -12,11 +13,12 @@ const Detailed = ({add}) => {
 
  const navigate = useNavigate();
 
-    const navToCart = (event) => {
-        event.preventDefault();
-        add({count: parseInt(event.currentTarget[0].value), img: item.src, name: item.name})
+    const navToCart = () => {
+        add({count: amount, img: item.src, name: item.name})
         navigate(`/${context.place}/cart`);
     }
+
+    const [amount, setAmount] = useState(1);
 
  return (
     <div>
@@ -25,11 +27,16 @@ const Detailed = ({add}) => {
         <div>
             <div>Price: {item.price}</div>
             <div>
-                <div>Qty</div>
-                <form onSubmit={navToCart}>
-                    <input type="number" min={1} defaultValue={1}></input>
-                    <input type="submit" value="Add to Cart" />
-                </form>
+                <div>
+                    <button onClick={() => {
+                        if(amount > 1){
+                            setAmount(amount-1);
+                        }
+                    }}>-</button>
+                    <span>Qty: {amount}</span>
+                    <button onClick={() => {setAmount(amount+1)}}>+</button>
+                    <button onClick={navToCart}>Add to Cart</button>
+                </div>
             </div>
         </div>
     </div>
