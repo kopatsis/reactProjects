@@ -23,6 +23,8 @@ const Cart = ({CD, edit, clear, del}) => {
 
     const [priceArr, setPriceArr] = useState([]);
 
+    const [totals, setTotals] = useState(0);
+
     const createPrices = () => {
       let temp = [];
       CD.forEach((item) => {
@@ -33,7 +35,15 @@ const Cart = ({CD, edit, clear, del}) => {
 
     useEffect(() => {
       createPrices();
-    }, [CD])
+    }, [CD]);
+
+    useEffect(() => {
+      // let currentTotal = 0;
+      // priceArr.forEach((sub) => {
+      //   currentTotal += sub;
+      // });
+      setTotals(priceArr.reduce(function (a, b) {return a + b;}, 0));
+    }, [priceArr])
 
   return (
     <>
@@ -54,7 +64,7 @@ const Cart = ({CD, edit, clear, del}) => {
           <div>Item Total: ${priceArr[index]}</div>
         </div>
       ))}
-      <div>Total: </div>
+      {CD.length > 0 && <div>Total: ${totals}</div>}
       {CD.length > 0 && <button onClick={clear}>Clear Cart</button>}
     </>
   )
