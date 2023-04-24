@@ -37,6 +37,12 @@ const Game = () => {
 
   const [timeOn, setTimeOn] = useState(false);
 
+  const [charFound, setCharFound] = useState({
+    Armored: false,
+    Catbus: false,
+    Johnny: false,
+  });
+
   const timer = () => {
     if (timeOn) {
       let seconds = parseInt(timeArr[2]);
@@ -59,15 +65,25 @@ const Game = () => {
     }
   };
 
+  let inProgTime: any;
+
   useEffect(() => {
-    setTimeout(timer, 999);
+    inProgTime = setTimeout(timer, 999);
   }, [timeArr]);
+
+  const resetGame = () => {
+    clearTimeout(inProgTime);
+    setTimeArr(["00", "00", "00"]);
+    setCharFound({ Armored: false, Catbus: false, Johnny: false });
+  };
 
   return (
     <>
       <nav>
         <Link to={"/game/exit"}>Exit to Home</Link>
-        <Link to={"/game"}>Restart Game</Link>
+        <Link to={"/game"} onClick={resetGame}>
+          Restart Game
+        </Link>
         <Link to={"/game/status"}>Character Statuses</Link>
         <span>
           Time: {timeArr[0]}:{timeArr[1]}:{timeArr[2]}
