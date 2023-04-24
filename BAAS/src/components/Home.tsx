@@ -1,11 +1,13 @@
 import React from "react";
-import { Outlet } from "react-router-dom";
+import { Outlet, useNavigate } from "react-router-dom";
 
 const Home = () => {
+  const navigate = useNavigate();
+
   return (
     <>
-      <div>Look Carefully</div>
-      <button>Play Game</button>
+      <h1>Look. Carefully.</h1>
+      <button onClick={() => navigate("/game")}>Play Game</button>
       <div>
         <div>How to Play:</div>
         <div>
@@ -20,7 +22,7 @@ const Home = () => {
         </div>
         <div>Good luck!</div>
       </div>
-      <button>Leaderboard</button>
+      <button onClick={() => navigate("/home/score")}>Leaderboard</button>
       <Outlet />
     </>
   );
