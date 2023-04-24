@@ -4,7 +4,13 @@ import { Outlet } from "react-router-dom";
 const Game = () => {
   return (
     <>
-      <div>Game</div>
+      <nav>
+        <span>Home</span>
+        <span>Restart</span>
+        <span>Character Statuses</span>
+        <span>Time: 00:00</span>
+      </nav>
+      {/* BIG IMG */}
       <Outlet />
     </>
   );
