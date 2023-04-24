@@ -3,7 +3,34 @@ import { Link, Outlet } from "react-router-dom";
 
 const Game = () => {
   const posLog = (event: any) => {
-    console.log(event.nativeEvent.offsetX, event.nativeEvent.offsetY);
+    const [Xperc, Yperc] = [
+      parseInt(event.nativeEvent.offsetX) / parseInt(event.target.width),
+      parseInt(event.nativeEvent.offsetY) / parseInt(event.target.height),
+    ];
+    if (
+      Xperc > 0.40106 &&
+      Xperc < 0.54505 &&
+      Yperc > 0.710564 &&
+      Yperc < 0.86594
+    ) {
+      console.log("Reiner");
+    } else if (
+      Xperc > 0.06184 &&
+      Xperc < 0.18905 &&
+      Yperc > 0.47371 &&
+      Yperc < 0.51208
+    ) {
+      console.log("Catbus");
+    } else if (
+      Xperc > 0.42756 &&
+      Xperc < 0.45583 &&
+      Yperc > 0.51208 &&
+      Yperc < 0.53482
+    ) {
+      console.log("Johnny");
+    } else {
+      console.log("Nada");
+    }
   };
 
   const [timeArr, setTimeArr] = useState(["00", "00", "00"]);
