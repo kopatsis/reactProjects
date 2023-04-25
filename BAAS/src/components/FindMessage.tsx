@@ -12,6 +12,8 @@ const FindMessage = () => {
 
   const [innerStyle, setInnerStyle] = useState({});
 
+  const [circStyle, setCircStyle] = useState({});
+
   const disableScroll = () => {
     let scrollTop = window.pageYOffset;
 
@@ -87,6 +89,42 @@ const FindMessage = () => {
       }
     }
   }, []);
+
+  useEffect(() => {
+    if (innerStyle.position !== undefined) {
+      if (innerStyle.top === undefined && innerStyle.right === undefined) {
+        setCircStyle({
+          position: "absolute",
+          left: `${context.clicked[0] - 25}px`,
+          bottom: `${window.innerHeight - context.clicked[1] - 25}px`,
+        });
+      } else if (
+        innerStyle.top === undefined &&
+        innerStyle.left === undefined
+      ) {
+        setCircStyle({
+          position: "absolute",
+          right: `${window.innerWidth - context.clicked[0] - 25}px`,
+          bottom: `${window.innerHeight - context.clicked[1] - 25}px`,
+        });
+      } else if (
+        innerStyle.bottom === undefined &&
+        innerStyle.right === undefined
+      ) {
+        setCircStyle({
+          position: "absolute",
+          left: `${context.clicked[0] - 25}px`,
+          top: `${context.clicked[1] - 25}px`,
+        });
+      } else {
+        setCircStyle({
+          position: "absolute",
+          right: `${window.innerWidth - context.clicked[0] - 25}px`,
+          top: `${context.clicked[1] - 25}px`,
+        });
+      }
+    }
+  }, [innerStyle]);
 
   const checkChar = (event: any) => {
     if (afterMessage === "-") {
@@ -189,6 +227,7 @@ const FindMessage = () => {
           <div>{afterMessage}</div>
         )}
       </div>
+      <img src="../placement.png" style={circStyle} className="redcirc"></img>
     </div>
   );
 };
