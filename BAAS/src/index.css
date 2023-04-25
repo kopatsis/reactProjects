@@ -1,3 +1,8 @@
+:root{
+    --blued: rgba(0, 21, 68, 0.5);
+    --blueback: rgba(0, 21, 68, 0.9);
+}
+
 .mainimg{
     width: 99dvw;
     cursor: crosshair;
@@ -8,11 +13,25 @@
 #root, body{
     margin: 0;
     padding: 0;
+    color: aliceblue;
+}
+
+html{
+    background: url('../main.jpg');
+    background-size: cover;
+    font-family: 'Courier New', Courier, monospace
+}
+
+body{
+    background: var(--blueback);
+    height: 100vh;
+    display: flex;
+    justify-content: center;
 }
 
 .popup-outer{
     position: fixed;
-  background: rgba(0, 0, 0, 0.7);
+  background: rgba(0, 0, 0, 0.5);
   top: 0;
   right: 0;
   bottom: 0;
@@ -24,9 +43,11 @@
 }
 
 .popup-inner{
-    background: white;
+    background: var(--blued);
+    color: aliceblue;
   padding: 25px;
-  border: 1px solid black;
+  border: 2px solid aliceblue;
+    border-radius: 16px;
 }
 
 .creds{
@@ -57,7 +78,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    border: 2px solid black;
+    border: 2px solid aliceblue;
 }
 
 button{
@@ -74,7 +95,7 @@ button{
     flex-direction: column;
     margin: 10px;
     padding: 10px;
-    border: 2px solid black;
+    border: 2px solid aliceblue;
 }
 
 .score-entry{
@@ -91,10 +112,37 @@ button{
 }
 
 .special{
-    background-color: yellow;
+    background-color: rgb(255, 255, 0);
+    color: var(--blueback);
 }
 
 .redcirc{
     height: 50px;
     width: 50px;
+}
+
+button{
+    font-family: 'Courier New', Courier, monospace;
+    color: aliceblue;
+    background: transparent;
+    border: 2px solid aliceblue;
+    border-radius: 6px;
+    font-size: 1.25em;
+}
+
+nav{
+    display: flex;
+    justify-content: space-around;
+    font-size: 1.5em;
+}
+
+nav a{
+    text-decoration: none;
+    color: aliceblue;
+}
+
+h1{
+    margin: 0;
+    padding-top: 20px;
+    padding-bottom: 20px;
 }

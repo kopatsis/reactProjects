@@ -5,9 +5,8 @@ const Home = () => {
   const navigate = useNavigate();
 
   return (
-    <>
+    <div className="homep">
       <h1>Look. Carefully.</h1>
-      <button onClick={() => navigate("/game")}>Play Game</button>
       <div>
         <div>How to Play:</div>
         <div>
@@ -51,8 +50,9 @@ const Home = () => {
         <div>Good luck!</div>
       </div>
       <button onClick={() => navigate("/home/score")}>Leaderboard</button>
+      <button onClick={() => navigate("/game")}>Play Game</button>
       <Outlet />
-    </>
+    </div>
   );
 };
 
