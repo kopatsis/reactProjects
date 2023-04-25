@@ -54,6 +54,14 @@ const FindMessage = () => {
           setAfterMessage("Ooh sorry, Johnny Bravo was not there");
         }
       }
+
+      if (
+        context.charstats.Armored &&
+        context.charstats.Catbus &&
+        context.charstats.Johnny
+      ) {
+        navigate("/game/winner");
+      }
     }
   };
 

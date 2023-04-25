@@ -16,7 +16,11 @@ const Game = () => {
 
   const [timeArr, setTimeArr] = useState(["00", "00", "00"]);
 
-  const [timeOn, setTimeOn] = useState(false);
+  const [timeOn, setTimeOn] = useState(true);
+
+  const timeOff = () => {
+    setTimeOn(false);
+  };
 
   const [charFound, setCharFound] = useState({
     Armored: false,
@@ -94,6 +98,7 @@ const Game = () => {
           timeTaken: timeArr,
           coords: currCoords,
           editChar: editCharFound,
+          offTime: timeOff,
         }}
       />
     </>
