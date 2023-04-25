@@ -4,9 +4,10 @@ import { useNavigate } from "react-router-dom";
 interface Props {
   board: any;
   special: any;
+  reset: any;
 }
 
-const Scoreboard = ({ board, special }: Props) => {
+const Scoreboard = ({ board, special, reset }: Props) => {
   const navigate = useNavigate();
 
   const [sortedBoard, setSortedBoard] = useState([]);
@@ -19,19 +20,23 @@ const Scoreboard = ({ board, special }: Props) => {
     setSortedBoard(temp);
   }, [board]);
 
+  const navOut = () => {
+    reset();
+    navigate("/home");
+  };
+
   return (
     <div className="popup-outer">
       <div className="popup-inner">
-        <button onClick={() => navigate("/home")}>X Close</button>
+        <button onClick={navOut}>X Close</button>
         <div>Scoreboard</div>
         <div className="allscores">
           {special !== 0 && (
-            <div className="score-entry">
+            <div className="score-entry special">
               <div>Your entry:</div>
               <div>{special.name}</div>
               <div>
-                {special.time[0] / 3600}h {special.time[1] / 60}m{" "}
-                {special.time[2]}s
+                {special.time[0]}:{special.time[1]}:{special.time[2]}
               </div>
             </div>
           )}
@@ -45,7 +50,7 @@ const Scoreboard = ({ board, special }: Props) => {
               <div>{index + 1}</div>
               <div>{item.name}</div>
               <div>
-                {item.time[0] / 3600}h {item.time[1] / 60}m {item.time[2]}s
+                {item.time[0]}:{item.time[1]}:{item.time[2]}
               </div>
             </div>
           ))}

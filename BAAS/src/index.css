@@ -89,3 +89,7 @@ button{
 .select{
     cursor: pointer;
 }
+
+.special{
+    background-color: yellow;
+}

@@ -1,7 +1,12 @@
 import { useEffect } from "react";
 import { useNavigate, useOutletContext } from "react-router-dom";
 
-const Winner = () => {
+interface Props {
+  board: any;
+  addToBoard: any;
+}
+
+const Winner = ({ board, addToBoard }: Props) => {
   const context: any = useOutletContext();
 
   const navigate = useNavigate();
@@ -16,7 +21,20 @@ const Winner = () => {
     }
   }, []);
 
-  const subToLeaderboard = (event: any) => {};
+  const subToLeaderboard = (event: any) => {
+    event.preventDefault();
+    const seconds =
+      parseInt(context.timeTaken[0]) * 3600 +
+      parseInt(context.timeTaken[1]) * 60 +
+      parseInt(context.timeTaken[2]);
+
+    addToBoard({
+      name: event.target[0].value,
+      time: context.timeTaken,
+      seconds: seconds,
+    });
+    navigate("/home/score");
+  };
 
   return (
     <>
@@ -32,8 +50,10 @@ const Winner = () => {
             </div>
             <div>
               <div>Enter your name below to submit to the leaderboard:</div>
-              <input type="text" name="winnername"></input>
-              <button onClick={subToLeaderboard}>Submit to leaderboard</button>
+              <form onSubmit={subToLeaderboard}>
+                <input type="text" name="winnername"></input>
+                <input type="submit" value="Submit"></input>
+              </form>
             </div>
             <button onClick={() => navigate("/home")}>Opt Out</button>
           </div>

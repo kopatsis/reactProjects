@@ -10,10 +10,21 @@ import Winner from "./components/Winner";
 
 const App = () => {
   const [scoreboard, setScoreboard] = useState([
-    { name: "Example Reemachine", time: [0, 180, 22], seconds: 202 },
-    { name: "Other Person", time: [0, 120, 14], seconds: 134 },
-    { name: "ugggg idk", time: [0, 240, 1], seconds: 241 },
+    { name: "Example Reemachine", time: ["00", "03", "12"], seconds: 202 },
+    { name: "Other Person", time: ["00", "02", "14"], seconds: 134 },
+    { name: "ugggg idk", time: ["00", "04", "01"], seconds: 241 },
   ]);
+
+  const [specialToBe, setSpecialToBe] = useState(0);
+
+  const addBoard = (item: any) => {
+    setScoreboard(scoreboard.concat(item));
+    setSpecialToBe(item);
+  };
+
+  const resetSpecial = () => {
+    setSpecialToBe(0);
+  };
 
   return (
     <Routes>
@@ -21,14 +32,23 @@ const App = () => {
       <Route path="/home" element={<Home />}>
         <Route
           path="score"
-          element={<Scoreboard board={scoreboard} special={0} />}
+          element={
+            <Scoreboard
+              board={scoreboard}
+              special={specialToBe}
+              reset={resetSpecial}
+            />
+          }
         />
       </Route>
       <Route path="/game" element={<Game />}>
         <Route path="exit" element={<ExitMessage />} />
         <Route path="status" element={<CharStatus />} />
         <Route path="find" element={<FindMessage />} />
-        <Route path="winner" element={<Winner />} />
+        <Route
+          path="winner"
+          element={<Winner board={scoreboard} addToBoard={addBoard} />}
+        />
       </Route>
     </Routes>
   );
