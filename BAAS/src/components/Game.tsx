@@ -96,7 +96,7 @@ const Game = () => {
         </a>
       </div>
 
-      <Outlet />
+      <Outlet context={{ charstats: charFound }} />
     </>
   );
 };

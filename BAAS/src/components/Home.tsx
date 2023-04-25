@@ -11,10 +11,38 @@ const Home = () => {
       <div>
         <div>How to Play:</div>
         <div>
-          Once the game starts, try to find the 3 characters below in the image
+          Once the game starts, try to find the 3 characters below in the images
           provided.
         </div>
-        <div>{/* 3 chars */}</div>
+        <div className="charsonmain">
+          <div className="charprofmain">
+            <div>
+              <img className="charstatimg" src="../armored.webp"></img>
+            </div>
+            <div>
+              <div>The Armored Titan</div>
+              <div>Classification: Easy</div>
+            </div>
+          </div>
+          <div className="charprofmain">
+            <div>
+              <img className="charstatimg" src="../catbus.png"></img>
+            </div>
+            <div>
+              <div>CatBus</div>
+              <div>Classification: Medium</div>
+            </div>
+          </div>
+          <div className="charprofmain">
+            <div>
+              <img className="charstatimg" src="../johnny.png"></img>
+            </div>
+            <div>
+              <div>Johnny Bravo</div>
+              <div>Classification: Hard</div>
+            </div>
+          </div>
+        </div>
         <div>Once you find one, click them and see if you were correct.</div>
         <div>
           After you find all 3, you will be able to submit your time to the
