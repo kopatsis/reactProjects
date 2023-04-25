@@ -6,10 +6,12 @@ const FindMessage = () => {
 
   const context: any = useOutletContext();
 
-  const [afterMessage, setAfterMessage] = useState("");
+  const [afterMessage, setAfterMessage] = useState("-");
+
+  const [dispAfter, setDispAfter] = useState("-");
 
   const checkChar = (event: any) => {
-    if (afterMessage === "") {
+    if (afterMessage === "-") {
       const [Xperc, Yperc] = context.coords;
 
       if (event.currentTarget.id === "Armor") {
@@ -20,6 +22,7 @@ const FindMessage = () => {
           Yperc < 0.86594
         ) {
           setAfterMessage("Congrats, you found the Armored Titan");
+          setDispAfter("A");
           context.editChar("A");
         } else {
           setAfterMessage("Ooh sorry, the Armored Titan was not there");
@@ -32,6 +35,7 @@ const FindMessage = () => {
           Yperc < 0.51208
         ) {
           setAfterMessage("Congrats, you found CatBus");
+          setDispAfter("C");
           context.editChar("C");
         } else {
           setAfterMessage("Ooh sorry, CatBus was not there");
@@ -44,6 +48,7 @@ const FindMessage = () => {
           Yperc < 0.53482
         ) {
           setAfterMessage("Congrats, you found Johnny Bravo");
+          setDispAfter("B");
           context.editChar("B");
         } else {
           setAfterMessage("Ooh sorry, Johnny Bravo was not there");
@@ -58,35 +63,41 @@ const FindMessage = () => {
         <button onClick={() => navigate("/game")}>X Close</button>
         <div>Which character do you see here?</div>
         <div>
-          <div className="charprof select" id="Armor" onClick={checkChar}>
-            <div>
-              <img className="charstatimg" src="../armored.webp"></img>
+          {(!context.charstats.Armored || dispAfter === "A") && (
+            <div className="charprof select" id="Armor" onClick={checkChar}>
+              <div>
+                <img className="charstatimg" src="../armored.webp"></img>
+              </div>
+              <div>
+                <div>The Armored Titan</div>
+                <div>Classification: Easy</div>
+              </div>
             </div>
-            <div>
-              <div>The Armored Titan</div>
-              <div>Classification: Easy</div>
+          )}
+          {(!context.charstats.Catbus || dispAfter === "C") && (
+            <div className="charprof select" id="Catbus" onClick={checkChar}>
+              <div>
+                <img className="charstatimg" src="../catbus.png"></img>
+              </div>
+              <div>
+                <div>CatBus</div>
+                <div>Classification: Medium</div>
+              </div>
             </div>
-          </div>
-          <div className="charprof select" id="Catbus" onClick={checkChar}>
-            <div>
-              <img className="charstatimg" src="../catbus.png"></img>
+          )}
+          {(!context.charstats.Johnny || dispAfter === "B") && (
+            <div className="charprof select" id="Johnny" onClick={checkChar}>
+              <div>
+                <img className="charstatimg" src="../johnny.png"></img>
+              </div>
+              <div>
+                <div>Johnny Bravo</div>
+                <div>Classification: Hard</div>
+              </div>
             </div>
-            <div>
-              <div>CatBus</div>
-              <div>Classification: Medium</div>
-            </div>
-          </div>
-          <div className="charprof select" id="Johnny" onClick={checkChar}>
-            <div>
-              <img className="charstatimg" src="../johnny.png"></img>
-            </div>
-            <div>
-              <div>Johnny Bravo</div>
-              <div>Classification: Hard</div>
-            </div>
-          </div>
+          )}
         </div>
-        {afterMessage === "" ? (
+        {afterMessage === "-" ? (
           <button onClick={() => navigate("/game")}>Nevermind</button>
         ) : (
           <div>{afterMessage}</div>
