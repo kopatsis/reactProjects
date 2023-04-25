@@ -18,10 +18,6 @@ const Game = () => {
 
   const [timeOn, setTimeOn] = useState(true);
 
-  const timeOff = () => {
-    setTimeOn(false);
-  };
-
   const [charFound, setCharFound] = useState({
     Armored: false,
     Catbus: false,
@@ -66,6 +62,11 @@ const Game = () => {
   useEffect(() => {
     inProgTime = setTimeout(timer, 999);
   }, [timeArr]);
+
+  const timeOff = () => {
+    setTimeOn(false);
+    clearTimeout(inProgTime);
+  };
 
   const resetGame = () => {
     clearTimeout(inProgTime);
