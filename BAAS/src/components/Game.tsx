@@ -1,7 +1,9 @@
 import React, { useEffect, useState } from "react";
-import { Link, Outlet } from "react-router-dom";
+import { Link, Outlet, useNavigate } from "react-router-dom";
 
 const Game = () => {
+  const navigate = useNavigate();
+
   const posLog = (event: any) => {
     const [Xperc, Yperc] = [
       parseInt(event.nativeEvent.offsetX) / parseInt(event.target.width),
@@ -31,6 +33,10 @@ const Game = () => {
     } else {
       console.log("Nada");
     }
+  };
+
+  const popupFindMess = (event: any) => {
+    navigate("/game/find");
   };
 
   const [timeArr, setTimeArr] = useState(["00", "00", "00"]);
@@ -89,7 +95,7 @@ const Game = () => {
           Time: {timeArr[0]}:{timeArr[1]}:{timeArr[2]}
         </span>
       </nav>
-      <img className="mainimg" src="../main.jpg" onClick={posLog} />
+      <img className="mainimg" src="../main.jpg" onClick={popupFindMess} />
       <div className="creds">
         <a href="https://www.artstation.com/chekavo" target="_blank">
           Image Credits to artist Egor Klyuchnyk
