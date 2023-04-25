@@ -27,33 +27,37 @@ const Scoreboard = ({ board, special, reset }: Props) => {
 
   return (
     <div className="popup-outer">
-      <div className="popup-inner">
+      <div className="popup-inner butscores">
         <button onClick={navOut}>X Close</button>
         <div>Scoreboard</div>
         <div className="allscores">
-          {special !== 0 && (
-            <div className="score-entry special">
-              <div>Your entry:</div>
-              <div>{special.name}</div>
-              <div>
+          <div className="scored placing">
+            {special !== 0 && <div className="special">You:</div>}
+            <div>Place: </div>
+            {sortedBoard.map((item: any, index: number) => (
+              <div>{index + 1}</div>
+            ))}
+          </div>
+          <div className="scored names">
+            {special !== 0 && <div className="special">{special.name}</div>}
+            <div>Name: </div>
+            {sortedBoard.map((item: any, index: number) => (
+              <div>{item.name}</div>
+            ))}
+          </div>
+          <div className="scored times">
+            {special !== 0 && (
+              <div className="special">
                 {special.time[0]}:{special.time[1]}:{special.time[2]}
               </div>
-            </div>
-          )}
-          <div className="score-entry">
-            <div>Place: </div>
-            <div>Name: </div>
+            )}
             <div>Time: </div>
-          </div>
-          {sortedBoard.map((item: any, index: number) => (
-            <div className="score-entry" key={index}>
-              <div>{index + 1}</div>
-              <div>{item.name}</div>
+            {sortedBoard.map((item: any, index: number) => (
               <div>
                 {item.time[0]}:{item.time[1]}:{item.time[2]}
               </div>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
       </div>
     </div>

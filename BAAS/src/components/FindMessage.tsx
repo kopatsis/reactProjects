@@ -190,7 +190,7 @@ const FindMessage = () => {
           {(!context.charstats.Armored || dispAfter === "A") && (
             <div className="charprof select" id="Armor" onClick={checkChar}>
               <div>
-                <img className="charstatimg" src="../armored.webp"></img>
+                <img className="charstatimg" src="../armor.png"></img>
               </div>
               <div>
                 <div>The Armored Titan</div>

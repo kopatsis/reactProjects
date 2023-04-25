@@ -14,7 +14,7 @@ const CharStatus = () => {
         <div>
           <div className="charprof">
             <div>
-              <img className="charstatimg" src="../armored.webp"></img>
+              <img className="charstatimg" src="../armor.png"></img>
             </div>
             <div>
               <div>The Armored Titan</div>
