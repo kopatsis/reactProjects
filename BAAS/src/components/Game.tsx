@@ -9,7 +9,7 @@ const Game = () => {
   const [clickCoords, setClickCoords] = useState([0, 0]);
 
   const popupFindMess = (event: any) => {
-    setClickCoords([event.pageX, event.pageY]);
+    setClickCoords([event.clientX, event.clientY]);
     setCurrCoords([
       parseInt(event.nativeEvent.offsetX) / parseInt(event.target.width),
       parseInt(event.nativeEvent.offsetY) / parseInt(event.target.height),

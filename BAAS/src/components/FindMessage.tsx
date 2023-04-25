@@ -12,8 +12,27 @@ const FindMessage = () => {
 
   const [innerStyle, setInnerStyle] = useState({});
 
+  const disableScroll = () => {
+    let scrollTop = window.pageYOffset;
+
+    window.onscroll = function () {
+      window.scrollTo(0, scrollTop);
+    };
+  };
+
+  function enableScroll() {
+    window.onscroll = function () {};
+  }
+
   useEffect(() => {
-    // console.log(document.querySelector(".popup-inner").clientHeight);
+    disableScroll();
+
+    return () => {
+      enableScroll();
+    };
+  }, []);
+
+  useEffect(() => {
     if (context.clicked[0] / window.innerWidth < 0.5) {
       if (
         window.innerHeight - context.clicked[1] >=
