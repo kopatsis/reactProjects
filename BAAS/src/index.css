@@ -1,6 +1,8 @@
 .mainimg{
-    width: 99vw;
+    width: 100vw;
     cursor: crosshair;
+    margin: 0;
+    padding: 0;
 }
 
 #root, body{
@@ -25,4 +27,19 @@
     background: white;
   padding: 25px;
   border: 1px solid black;
+}
+
+.creds{
+    width: 100vw;
+    background-color: darkblue;
+    color: aliceblue;
+    text-decoration: none;
+    margin: 0;
+    padding: 6px;
+    text-align: center;
+}
+
+.creds a{
+    color: aliceblue;
+    text-decoration: none;
 }

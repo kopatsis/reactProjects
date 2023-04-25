@@ -90,6 +90,12 @@ const Game = () => {
         </span>
       </nav>
       <img className="mainimg" src="../main.jpg" onClick={posLog} />
+      <div className="creds">
+        <a href="https://www.artstation.com/chekavo" target="_blank">
+          Image Credits to artist Egor Klyuchnyk
+        </a>
+      </div>
+
       <Outlet />
     </>
   );
