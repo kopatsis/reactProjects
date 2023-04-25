@@ -24,10 +24,19 @@ const FindMessage = () => {
           top: `${context.clicked[1]}px`,
           left: `${context.clicked[0]}px`,
         });
+      } else if (
+        context.clicked[1] >=
+        document.querySelector(".popup-inner").clientHeight
+      ) {
+        setInnerStyle({
+          position: "absolute",
+          bottom: `${window.innerHeight - context.clicked[1]}px`,
+          left: `${context.clicked[0]}px`,
+        });
       } else {
         setInnerStyle({
           position: "absolute",
-          bottom: "0px",
+          bottom: `0px`,
           left: `${context.clicked[0]}px`,
         });
       }
@@ -41,10 +50,19 @@ const FindMessage = () => {
           top: `${context.clicked[1]}px`,
           right: `${window.innerWidth - context.clicked[0]}px`,
         });
+      } else if (
+        context.clicked[1] >=
+        document.querySelector(".popup-inner").clientHeight
+      ) {
+        setInnerStyle({
+          position: "absolute",
+          bottom: `${window.innerHeight - context.clicked[1]}px`,
+          right: `${window.innerWidth - context.clicked[0]}px`,
+        });
       } else {
         setInnerStyle({
           position: "absolute",
-          bottom: "0px",
+          bottom: `0px`,
           right: `${window.innerWidth - context.clicked[0]}px`,
         });
       }
