@@ -4,38 +4,13 @@ import { Link, Outlet, useNavigate } from "react-router-dom";
 const Game = () => {
   const navigate = useNavigate();
 
-  const posLog = (event: any) => {
-    const [Xperc, Yperc] = [
-      parseInt(event.nativeEvent.offsetX) / parseInt(event.target.width),
-      parseInt(event.nativeEvent.offsetY) / parseInt(event.target.height),
-    ];
-    if (
-      Xperc > 0.40106 &&
-      Xperc < 0.54505 &&
-      Yperc > 0.710564 &&
-      Yperc < 0.86594
-    ) {
-      console.log("Reiner");
-    } else if (
-      Xperc > 0.06184 &&
-      Xperc < 0.18905 &&
-      Yperc > 0.47371 &&
-      Yperc < 0.51208
-    ) {
-      console.log("Catbus");
-    } else if (
-      Xperc > 0.42756 &&
-      Xperc < 0.45583 &&
-      Yperc > 0.51208 &&
-      Yperc < 0.53482
-    ) {
-      console.log("Johnny");
-    } else {
-      console.log("Nada");
-    }
-  };
+  const [currCoords, setCurrCoords] = useState([0, 0]);
 
   const popupFindMess = (event: any) => {
+    setCurrCoords([
+      parseInt(event.nativeEvent.offsetX) / parseInt(event.target.width),
+      parseInt(event.nativeEvent.offsetY) / parseInt(event.target.height),
+    ]);
     navigate("/game/find");
   };
 
@@ -48,6 +23,17 @@ const Game = () => {
     Catbus: false,
     Johnny: false,
   });
+
+  const editCharFound = (found: any) => {
+    if (found === "A") {
+      charFound.Armored = true;
+    } else if (found === "C") {
+      charFound.Catbus = true;
+    } else {
+      charFound.Johnny = true;
+    }
+    setCharFound(charFound);
+  };
 
   const timer = () => {
     if (timeOn) {
@@ -102,7 +88,14 @@ const Game = () => {
         </a>
       </div>
 
-      <Outlet context={{ charstats: charFound }} />
+      <Outlet
+        context={{
+          charstats: charFound,
+          timeTaken: timeArr,
+          coords: currCoords,
+          editChar: editCharFound,
+        }}
+      />
     </>
   );
 };

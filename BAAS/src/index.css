@@ -85,3 +85,7 @@ button{
 .allscores{
     width: 500px;
 }
+
+.select{
+    cursor: pointer;
+}
