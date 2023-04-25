@@ -6,7 +6,10 @@ const Game = () => {
 
   const [currCoords, setCurrCoords] = useState([0, 0]);
 
+  const [clickCoords, setClickCoords] = useState([0, 0]);
+
   const popupFindMess = (event: any) => {
+    setClickCoords([event.pageX, event.pageY]);
     setCurrCoords([
       parseInt(event.nativeEvent.offsetX) / parseInt(event.target.width),
       parseInt(event.nativeEvent.offsetY) / parseInt(event.target.height),
@@ -100,6 +103,7 @@ const Game = () => {
           coords: currCoords,
           editChar: editCharFound,
           offTime: timeOff,
+          clicked: clickCoords,
         }}
       />
     </>

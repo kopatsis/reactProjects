@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useNavigate, useOutletContext } from "react-router-dom";
 
 const FindMessage = () => {
@@ -9,6 +9,47 @@ const FindMessage = () => {
   const [afterMessage, setAfterMessage] = useState("-");
 
   const [dispAfter, setDispAfter] = useState("-");
+
+  const [innerStyle, setInnerStyle] = useState({});
+
+  useEffect(() => {
+    // console.log(document.querySelector(".popup-inner").clientHeight);
+    if (context.clicked[0] / window.innerWidth < 0.5) {
+      if (
+        window.innerHeight - context.clicked[1] >=
+        document.querySelector(".popup-inner").clientHeight
+      ) {
+        setInnerStyle({
+          position: "absolute",
+          top: `${context.clicked[1]}px`,
+          left: `${context.clicked[0]}px`,
+        });
+      } else {
+        setInnerStyle({
+          position: "absolute",
+          bottom: "0px",
+          left: `${context.clicked[0]}px`,
+        });
+      }
+    } else {
+      if (
+        window.innerHeight - context.clicked[1] >=
+        document.querySelector(".popup-inner").clientHeight
+      ) {
+        setInnerStyle({
+          position: "absolute",
+          top: `${context.clicked[1]}px`,
+          right: `${window.innerWidth - context.clicked[0]}px`,
+        });
+      } else {
+        setInnerStyle({
+          position: "absolute",
+          bottom: "0px",
+          right: `${window.innerWidth - context.clicked[0]}px`,
+        });
+      }
+    }
+  }, []);
 
   const checkChar = (event: any) => {
     if (afterMessage === "-") {
@@ -67,7 +108,7 @@ const FindMessage = () => {
 
   return (
     <div className="popup-outer">
-      <div className="popup-inner">
+      <div className="popup-inner" style={innerStyle}>
         <button onClick={() => navigate("/game")}>X Close</button>
         <div>Which character do you see here?</div>
         <div>
